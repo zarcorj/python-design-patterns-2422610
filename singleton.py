@@ -15,7 +15,7 @@ class Singleton(Borg):
 
     """The singleton class"""
     def __init__(self, **kwards):
-        #Borg.__init__(self)
+        Borg.__init__(self)
         #super().__init__()
         self._shared_data.update(kwards) #Update the attribute dictionary
 
@@ -30,4 +30,4 @@ print(x)
 y = Singleton(SNMP = "Simple Network Management Protocol")
 print(y)
 
-print(y.__dict__)
+print(y.__dict__)  # 'x' or 'y' is indistintic, both have the same shared dict attribute
