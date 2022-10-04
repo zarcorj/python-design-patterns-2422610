@@ -15,8 +15,8 @@ class Singleton(Borg):
 
     """The singleton class"""
     def __init__(self, **kwards):
-        Borg.__init__(self)
-        #super().__init__()
+        #Borg.__init__(self)
+        super().__init__()
         self._shared_data.update(kwards) #Update the attribute dictionary
 
     def __str__(self):
