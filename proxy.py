@@ -1,44 +1,49 @@
 import time
 
-class Producer:
-	"""Define the 'resource-intensive' object to instantiate!"""
-	def produce(self):
-		print("Producer is working hard!")
 
-	def meet(self):
-		print("Producer has time to meet you now!")
+class Producer:
+    """Define the 'resource-intensive' object to instantiate!"""
+
+    def produce(self):
+        print("Producer is working hard!")
+
+    def meet(self):
+        print("Producer has time to meet you now!")
+
 
 class Proxy:
-	""""Define the 'relatively less resource-intensive' proxy to instantiate as a middleman"""
-	def __init__(self):  
-		self.occupied = 'No'
-		self.producer = None
+    """ "Define the 'relatively less resource-intensive' proxy to instantiate as a middleman"""
 
-	def produce(self):
-		"""Check if Producer is available"""
-		print("Artist checking if Producer is available ...")
+    def __init__(self):
+        self.occupied = "No"
+        self.producer = None
 
-		if self.occupied == 'No':
-			#If the producer is available, create a producer object!
-			
+    def produce(self):
+        """Check if Producer is available"""
+        print("Artist checking if Producer is available ...")
 
-			#Make the prodcuer meet the guest!
-			
-			
-		else:
-			#Otherwise, don't instantiate a producer 
-			time.sleep(2)
-			print("Producer is busy!")
+        if self.occupied == "No":
+            # If the producer is available, create a producer object!
+            self.producer = Producer()
+            time.sleep(2)
 
-#Instantiate a Proxy
+            # Make the producer meet the guest!
+            self.producer.meet()
 
-
-#Make the proxy: Artist produce until Producer is available
+        else:
+            # Otherwise, don't instantiate a producer
+            time.sleep(2)
+            print("Producer is busy!")
 
 
-#Change the state to 'occupied'
+# Instantiate a Proxy
+p = Proxy()
 
+# Make the proxy: Artist produce until Producer is available
+p.produce()
 
-#Make the Producer produce
+# Change the state to 'occupied'
+p.occupied = "Yes"
 
-
+# Make the Producer produce
+p.produce()
